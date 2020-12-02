@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 999;
+    a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+    .logo {
+        margin-right: 15px;
+    }
+    .title-group {
+        i {
+            margin-right: 5px;
+            font-size: 1.5rem;
+        }
+    }
+}
