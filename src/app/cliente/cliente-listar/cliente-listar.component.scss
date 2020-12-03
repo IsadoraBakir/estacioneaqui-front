@@ -1,0 +1,14 @@
+.full-width-table {
+    width: 100%;
+}
+
+.edita {
+    margin-right: 10px;
+    & > i {
+        color: #d9cd26;
+    }
+}
+
+.deleta > i {
+    color: #e35e6b;
+}

@@ -1,1 +1,78 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-card {
+    margin: 0 0 15px;
+}
+
+button {
+    margin-right: 10px !important;
+    &:last-of-type {
+        margin-right: 0 !important;
+    }
+}
+
+mat-form-field {
+    margin-right: 10px !important;
+    &:last-of-type {
+        margin-right: 0 !important;
+    }
+}
+
+form {
+    margin: 20px 0 10px;
+}
+
+table {
+    margin: 20px 0;
+}
+
+a {
+    cursor: pointer;
+}
+
+.red {
+    color: rgb(277, 94, 107);
+}
+
+.v-middle {
+    vertical-align: middle;
+}
+
+#id {
+    max-width: 65px;
+}
+
+.sidenav {
+    background-color: #3f51b5;
+    width: 200px;
+}
+
+.content {
+    padding: 25px 20px;
+    background-color: white;
+    margin-top: 64px;
+}
+
+.mat-snack-bar-container {
+    color: #fff;
+    .mat-simple-snackbar-action {
+        color: white !important;
+    }
+}
+
+.msg-sucesso {
+    background-color: #28a745;
+}
+
+.msg-erro {
+    background-color: #e35e6b;
+}

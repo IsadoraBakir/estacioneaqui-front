@@ -1,0 +1,21 @@
+<mat-card *ngIf="cliente" class="mat-elevation-z2">
+    <mat-card-title>Editar Cliente</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input disabled matInput placeholder="Nome" [(ngModel)]="cliente.nome" name="nome">
+        </mat-form-field>
+        <mat-form-field>
+            <input disabled matInput placeholder="CPF" [(ngModel)]="cliente.cpf" name="cpf">
+        </mat-form-field>
+        <mat-form-field>
+            <input disabled matInput placeholder="Telefone" [(ngModel)]="cliente.telefone" name="telefone">
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)=deletaCliente(cliente.id) color="warn">
+        Deletar
+    </button>
+
+    <button mat-raised-button (click)=cancela()>
+        Cancelar
+    </button>
+</mat-card>
