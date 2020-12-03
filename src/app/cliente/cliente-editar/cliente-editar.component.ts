@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/modelos/cliente';
 import { ClienteService } from '../cliente.service';
@@ -12,14 +13,26 @@ export class ClienteEditarComponent implements OnInit {
 
   cliente: Cliente;
 
+  edicaoForm: FormGroup;
+
   constructor(private clienteService: ClienteService,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private fb: FormBuilder) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.clienteService.listaPorId(id).subscribe((cliente: any) => {
       this.cliente = cliente.data;
+      this.initForm();
+    });
+  }
+
+  initForm(): void {
+    this.edicaoForm = this.fb.group({
+      nome: [this.cliente.nome, Validators.required],
+      cpf: [this.cliente.cpf, Validators.required],
+      telefone: [this.cliente.telefone, Validators.required]
     });
   }
 

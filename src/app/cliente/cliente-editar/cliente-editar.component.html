@@ -1,21 +1,23 @@
 <mat-card *ngIf="cliente" class="mat-elevation-z2">
     <mat-card-title>Editar Cliente</mat-card-title>
-    <form>
-        <mat-form-field>
-            <input matInput placeholder="Nome" [(ngModel)]="cliente.nome" name="nome">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="CPF" [(ngModel)]="cliente.cpf" name="cpf">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Telefone" [(ngModel)]="cliente.telefone" name="telefone">
-        </mat-form-field>
-    </form>
-    <button mat-raised-button (click)=editaCliente() color="primary">
-        Salvar
-    </button>
+    <form [formGroup]="edicaoForm" (ngSubmit)="editaCliente()">
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Nome" formControlName="nome">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="CPF" formControlName="cpf">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Telefone" formControlName="telefone">
+            </mat-form-field>
+        </div>
+        <button mat-raised-button type="submit" [disabled]="!edicaoForm.valid" color="primary">
+            Salvar
+        </button>
 
-    <button mat-raised-button (click)=cancela()>
-        Cancelar
-    </button>
+        <button mat-raised-button type="button" (click)=cancela()>
+            Cancelar
+        </button>
+    </form>
 </mat-card>

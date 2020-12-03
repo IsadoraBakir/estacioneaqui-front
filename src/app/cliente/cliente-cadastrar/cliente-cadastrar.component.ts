@@ -31,7 +31,6 @@ export class ClienteCadastrarComponent implements OnInit {
 
   cadastraCliente(): void {
     this.cliente = Object.assign({}, this.cliente, this.cadastroForm.value);
-    console.log(this.cliente);
     this.clienteService.cadastra(this.cliente).subscribe(() => {
       this.clienteService.mostraMsg('Cliente salvo com sucesso!');
       this.router.navigate(['cliente']);
