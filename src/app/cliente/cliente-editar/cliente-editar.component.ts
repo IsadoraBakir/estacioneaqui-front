@@ -46,5 +46,4 @@ export class ClienteEditarComponent implements OnInit {
   cancela(): void {
     this.router.navigate(['/cliente']);
   }
-
 }

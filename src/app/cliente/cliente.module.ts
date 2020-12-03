@@ -1,10 +1,10 @@
-import { MaterialModule } from './../material/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { ClienteRoutingModule } from './cliente.route';
+import { MaterialModule } from './../utils/material.module';
 
 import { ClienteAppComponent } from './cliente.app.component';
 import { ClienteDeletarComponent } from './cliente-deletar/cliente-deletar.component';
