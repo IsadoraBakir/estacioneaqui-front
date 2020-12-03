@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { ErrorHandler, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable, EMPTY } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
@@ -60,7 +60,7 @@ export class ClienteService {
 
   mostraMsg(msg: string, isError: boolean = false): void {
     this.snackBar.open(msg, 'X', {
-      duration: 30000,
+      duration: 3000,
       horizontalPosition: 'right',
       verticalPosition: 'top',
       panelClass: isError ? ['msg-erro'] : ['msg-sucesso']

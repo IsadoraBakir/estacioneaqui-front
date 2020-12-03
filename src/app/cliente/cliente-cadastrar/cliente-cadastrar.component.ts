@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Cliente } from 'src/app/modelos/cliente';
@@ -12,19 +13,25 @@ import { ClienteService } from '../cliente.service';
 })
 export class ClienteCadastrarComponent implements OnInit {
 
-  cliente: Cliente = {
-    nome: '',
-    cpf: '',
-    telefone: ''
-  };
+  cliente: Cliente;
+
+  cadastroForm: FormGroup;
 
   constructor(private clienteService: ClienteService,
-              private router: Router) { }
+              private router: Router,
+              private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.cadastroForm = this.fb.group({
+      nome: ['', Validators.required],
+      cpf: ['', Validators.required],
+      telefone: ['', Validators.required]
+    });
   }
 
-  criaCliente(): void {
+  cadastraCliente(): void {
+    this.cliente = Object.assign({}, this.cliente, this.cadastroForm.value);
+    console.log(this.cliente);
     this.clienteService.cadastra(this.cliente).subscribe(() => {
       this.clienteService.mostraMsg('Cliente salvo com sucesso!');
       this.router.navigate(['cliente']);

@@ -1,6 +1,6 @@
-<div *ngIf="!existeClienteCadastrado">
-  Não há clientes cadastrados.
-</div>
+<mat-card *ngIf="!existeClienteCadastrado" class="card-warn mat-elevation-z3">
+  Não há clientes cadastrados até o momento.
+</mat-card>
 
 <div *ngIf="existeClienteCadastrado" class="mat-elevation-z8">
   <table mat-table class="full-width-table" matSort aria-label="Elements">

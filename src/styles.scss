@@ -7,6 +7,7 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    color: #424242 !important;
 }
 
 mat-card {
@@ -75,4 +76,11 @@ a {
 
 .msg-erro {
     background-color: #e35e6b;
+}
+
+.card-warn {
+    background-color: #f5e61741;
+    margin: 20px 0;
+    text-align: center;
+    color: #424242;
 }
