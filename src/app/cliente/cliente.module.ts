@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+// import { NgBrazil } from 'ng-brazil';
+
 import { ClienteRoutingModule } from './cliente.route';
 import { MaterialModule } from './../utils/material.module';
 
@@ -27,7 +29,8 @@ import { ClienteService } from './cliente.service';
     RouterModule,
     HttpClientModule,
     ClienteRoutingModule,
-    MaterialModule
+    MaterialModule,
+    // NgBrazil
   ],
   providers: [
     ClienteService

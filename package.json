@@ -7,8 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ngcc"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -23,7 +22,6 @@
     "@angular/platform-browser-dynamic": "~10.1.6",
     "@angular/router": "~10.1.6",
     "rxjs": "~6.6.0",
-    "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

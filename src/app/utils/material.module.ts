@@ -15,7 +15,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule
   ],
