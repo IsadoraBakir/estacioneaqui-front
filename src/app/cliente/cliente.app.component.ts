@@ -1,16 +1,16 @@
-import { HeaderService } from './../navegacao/header/header.service';
+import { NavService } from '../navegacao/nav.service';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-cliente-root',
-  templateUrl: './cliente.app.component.html'
+  template: '<router-outlet></router-outlet>'
 })
 export class ClienteAppComponent {
 
   constructor(private router: Router,
-              private headerService: HeaderService) {
-                headerService.headerInfo = {
+              private navService: NavService) {
+                this.navService.menuItemInfo = {
                   titulo: 'Clientes',
                   icone: 'face',
                   routeUrl: '/cliente'

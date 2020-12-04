@@ -1,4 +1,7 @@
+import { MenuItemInfo } from './../../modelos/menu-item.info';
 import { Component, OnInit } from '@angular/core';
+
+import { NavService } from '../nav.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-  constructor() { }
+  navList: MenuItemInfo[];
+
+  constructor(private navService: NavService) { }
 
   ngOnInit(): void {
+    this.navList = this.navService.navItems;
   }
 
 }

@@ -1,3 +1,4 @@
+import { ClienteTelaInicialComponent } from './cliente-tela-inicial/cliente-tela-inicial.component';
 import { ClienteAppComponent } from './cliente.app.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -6,10 +7,16 @@ import { ClienteEditarComponent } from './cliente-editar/cliente-editar.componen
 import { ClienteDeletarComponent } from './cliente-deletar/cliente-deletar.component';
 
 const routes: Routes = [
-    { path: '', component: ClienteAppComponent },
-    { path: 'cadastrar', component: ClienteCadastrarComponent },
-    { path: 'editar/:id', component: ClienteEditarComponent },
-    { path: 'deletar/:id', component: ClienteDeletarComponent },
+    {
+        path: '', component: ClienteAppComponent,
+        children: [
+            { path: '', component: ClienteTelaInicialComponent },
+            { path: 'cadastrar', component: ClienteCadastrarComponent },
+            { path: 'editar/:id', component: ClienteEditarComponent },
+            { path: 'deletar/:id', component: ClienteDeletarComponent },
+        ]
+    },
+
 ];
 
 @NgModule({

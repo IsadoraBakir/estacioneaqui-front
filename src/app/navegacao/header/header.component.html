@@ -1,15 +1,13 @@
 <mat-toolbar class="header mat-elevation-z2">
     <span>
-        <span [routerLink]="['/']">
+        <a [routerLink]="['/']">
             <img class="logo" src="assets/img/logo.svg" alt="logo">
-        </span>
+        </a>
     </span>
     <span class="title-group">
-        <a>
-            <i class="material-icons">
-                {{ icone }}
-            </i>
-            {{ titulo }}
-        </a>
+        <i class="material-icons">
+            {{ icone }}
+        </i>
+        {{ titulo }}
     </span>
 </mat-toolbar>

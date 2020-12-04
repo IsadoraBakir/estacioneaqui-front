@@ -3,16 +3,14 @@
     align-items: center;
     position: fixed;
     z-index: 999;
-    a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: #424242 !important;
-    }
     .logo {
         margin-right: 15px;
     }
     .title-group {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #424242 !important;
         i {
             margin-right: 5px;
             font-size: 1.5rem;

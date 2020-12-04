@@ -1,5 +1,11 @@
 <mat-nav-list class="nav-list">
-    <a mat-list-item [routerLink]="['/']">
+    <a mat-list-item [routerLink]="item.routeUrl" routerLinkActive="active" *ngFor="let item of navList">
+        <i class="material-icons">
+            {{ item.icone }}
+        </i>
+        {{ item.titulo }}
+    </a>
+    <!-- <a mat-list-item [routerLink]="['/']">
         <i class="material-icons">
             home
         </i>
@@ -34,5 +40,5 @@
             arrow_upward
         </i>
         Check out
-    </a>
+    </a> -->
 </mat-nav-list>

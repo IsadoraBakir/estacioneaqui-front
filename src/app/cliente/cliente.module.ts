@@ -15,6 +15,7 @@ import { ClienteListarComponent } from './cliente-listar/cliente-listar.componen
 import { ClienteCadastrarComponent } from './cliente-cadastrar/cliente-cadastrar.component';
 
 import { ClienteService } from './cliente.service';
+import { ClienteTelaInicialComponent } from './cliente-tela-inicial/cliente-tela-inicial.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ClienteService } from './cliente.service';
     ClienteEditarComponent,
     ClienteListarComponent,
     ClienteCadastrarComponent,
+    ClienteTelaInicialComponent,
   ],
   imports: [
     CommonModule,
