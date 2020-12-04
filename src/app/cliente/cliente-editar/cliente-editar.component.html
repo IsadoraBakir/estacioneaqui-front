@@ -3,13 +3,13 @@
     <form [formGroup]="edicaoForm" (ngSubmit)="editaCliente()">
         <div>
             <mat-form-field>
-                <input matInput placeholder="Nome" formControlName="nome">
+                <input matInput placeholder="Nome" formControlName="nome" name="nome">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="CPF" formControlName="cpf">
+                <input matInput placeholder="CPF" formControlName="cpf" name="cpf">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Telefone" formControlName="telefone">
+                <input matInput placeholder="Telefone" formControlName="telefone" name="telefone">
             </mat-form-field>
         </div>
         <button mat-raised-button type="submit" [disabled]="!edicaoForm.valid" color="primary">

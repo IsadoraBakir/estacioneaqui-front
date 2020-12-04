@@ -30,6 +30,7 @@ export class ClienteEditarComponent implements OnInit {
 
   initForm(): void {
     this.edicaoForm = this.fb.group({
+      id: [this.cliente.id, Validators.required],
       nome: [this.cliente.nome, Validators.required],
       cpf: [this.cliente.cpf, Validators.required],
       telefone: [this.cliente.telefone, Validators.required]
@@ -37,7 +38,7 @@ export class ClienteEditarComponent implements OnInit {
   }
 
   editaCliente(): void {
-    this.clienteService.edita(this.cliente).subscribe(() => {
+    this.clienteService.edita(this.edicaoForm.value).subscribe(() => {
       this.clienteService.mostraMsg('Cliente atualizado com sucesso!');
       this.router.navigate(['/cliente']);
     });
