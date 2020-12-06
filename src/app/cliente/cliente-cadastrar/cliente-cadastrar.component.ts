@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { Cliente } from 'src/app/modelos/cliente';
 
@@ -11,15 +12,21 @@ import { ClienteService } from '../cliente.service';
   templateUrl: './cliente-cadastrar.component.html',
   styleUrls: ['./cliente-cadastrar.component.scss']
 })
-export class ClienteCadastrarComponent implements OnInit {
+export class ClienteCadastrarComponent implements OnInit, OnDestroy {
 
   cliente: Cliente;
 
   cadastroForm: FormGroup;
 
+  subscriptions: Subscription[] = [];
+
   constructor(private clienteService: ClienteService,
               private router: Router,
               private fb: FormBuilder) { }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe);
+  }
 
   ngOnInit(): void {
     this.cadastroForm = this.fb.group({
@@ -31,10 +38,12 @@ export class ClienteCadastrarComponent implements OnInit {
 
   cadastraCliente(): void {
     this.cliente = Object.assign({}, this.cliente, this.cadastroForm.value);
-    this.clienteService.cadastra(this.cliente).subscribe(() => {
-      this.clienteService.mostraMsg('Cliente salvo com sucesso!');
-      this.router.navigate(['cliente']);
-    });
+    this.subscriptions.push(
+      this.clienteService.cadastra(this.cliente).subscribe(() => {
+        this.clienteService.mostraMsg('Cliente salvo com sucesso!');
+        this.router.navigate(['cliente']);
+      })
+    );
   }
 
   cancela(): void {
