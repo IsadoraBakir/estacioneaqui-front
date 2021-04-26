@@ -1,3 +1,6 @@
+import { AppModule } from './../../app.module';
+import { HttpClientModule } from '@angular/common/http';
+import { MaterialModule } from './../../utils/material.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ClienteEditarComponent } from './cliente-editar.component';
@@ -8,7 +11,12 @@ describe('ClienteEditarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ClienteEditarComponent ]
+      declarations: [ ClienteEditarComponent ],
+      imports: [
+        MaterialModule,
+        HttpClientModule,
+        AppModule
+      ]
     })
     .compileComponents();
   });

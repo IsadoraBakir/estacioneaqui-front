@@ -32,7 +32,7 @@ export class ClienteDeletarComponent implements OnInit, OnDestroy {
     );
   }
 
-  deletaCliente(id: string): void {
+  deletaCliente(id: number): void {
     this.subscriptions.push(
       this.clienteService.deleta(id).subscribe(() => {
         this.clienteService.mostraMsg('Cliente removido com sucesso!');

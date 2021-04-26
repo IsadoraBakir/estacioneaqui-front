@@ -1,3 +1,4 @@
+import { MatTableModule } from '@angular/material/table';
 import { NgModule } from '@angular/core';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,7 +25,7 @@ import { ClienteTelaInicialComponent } from './cliente-tela-inicial/cliente-tela
     ClienteEditarComponent,
     ClienteListarComponent,
     ClienteCadastrarComponent,
-    ClienteTelaInicialComponent,
+    ClienteTelaInicialComponent
   ],
   imports: [
     CommonModule,

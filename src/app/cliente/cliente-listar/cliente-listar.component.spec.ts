@@ -1,3 +1,7 @@
+import { AppModule } from './../../app.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ClienteService } from './../cliente.service';
+import { MaterialModule } from './../../utils/material.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ClienteListarComponent } from './cliente-listar.component';
@@ -8,7 +12,13 @@ describe('ClienteListarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ClienteListarComponent ]
+      declarations: [ ClienteListarComponent ],
+      imports: [
+        MaterialModule,
+        HttpClientModule,
+        AppModule
+      ],
+      providers: [ ClienteService ]
     })
     .compileComponents();
   });

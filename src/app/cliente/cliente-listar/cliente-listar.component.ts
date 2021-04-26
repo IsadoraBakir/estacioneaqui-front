@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { MatTable } from '@angular/material/table';
 import { Subscription } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { Cliente } from 'src/app/modelos/cliente';
 import { ClienteService } from '../cliente.service';
 
@@ -12,11 +14,11 @@ import { ClienteService } from '../cliente.service';
   styleUrls: ['./cliente-listar.component.scss']
 })
 export class ClienteListarComponent implements OnInit, OnDestroy {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatTable) table: MatTable<Cliente[]>;
+  paginator: MatPaginator;
+  sort: MatSort;
+  table: MatTable<Cliente[]>;
   dataSource;
-  existeClienteCadastrado = true;
+  existeClienteCadastrado = false;
 
   colunasExibidas = ['id', 'nome', 'cpf', 'telefone', 'acoes'];
   clientes: Cliente[];
@@ -30,18 +32,18 @@ export class ClienteListarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscriptions.push(
-      this.clienteService.lista().subscribe(clientes => {
-        this.clientes = clientes;
-        if (this.clientes.length === 0) {
+    this.clienteService.lista().pipe(take(1)).subscribe(clientes => {
+      if (clientes) {
+        if (clientes.length <= 0) {
           this.existeClienteCadastrado = false;
         } else {
-          this.dataSource = new MatTableDataSource(clientes);
+          this.clientes = clientes;
+          this.existeClienteCadastrado = true;
+          this.dataSource = new MatTableDataSource(this.clientes);
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
-          this.table.dataSource = this.dataSource;
         }
-      })
-    );
+      }
+    });
   }
 }

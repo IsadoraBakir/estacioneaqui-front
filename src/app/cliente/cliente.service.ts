@@ -45,7 +45,7 @@ export class ClienteService {
     );
   }
 
-  deleta(id: string): Observable<Cliente> {
+  deleta(id: number): Observable<Cliente> {
     const url = `${this.urlApi}/${id}`;
     return this.http.delete<Cliente>(url).pipe(
       map(obj => obj),
