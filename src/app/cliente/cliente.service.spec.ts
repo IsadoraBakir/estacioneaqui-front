@@ -1,7 +1,7 @@
 import { Cliente } from './../modelos/cliente';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable, Observer } from 'rxjs';
-import { MaterialModule } from './../utils/material.module';
+import { MaterialModule } from '../utils/material/material.module';
 import { TestBed } from '@angular/core/testing';
 import { ClienteService } from './cliente.service';
 

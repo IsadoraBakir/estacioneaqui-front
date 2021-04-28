@@ -1,7 +1,7 @@
 import { AppModule } from './../../app.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ClienteService } from './../cliente.service';
-import { MaterialModule } from './../../utils/material.module';
+import { MaterialModule } from '../../utils/material/material.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ClienteListarComponent } from './cliente-listar.component';

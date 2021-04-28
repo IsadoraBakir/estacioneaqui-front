@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { MaterialModule } from './../utils/material.module';
+import { MaterialModule } from '../utils/material/material.module';
 
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';

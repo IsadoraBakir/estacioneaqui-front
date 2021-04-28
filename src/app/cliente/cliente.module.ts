@@ -1,4 +1,3 @@
-import { MatTableModule } from '@angular/material/table';
 import { NgModule } from '@angular/core';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -7,7 +6,8 @@ registerLocaleData(localePt);
 import { RouterModule } from '@angular/router';
 
 import { ClienteRoutingModule } from './cliente.route';
-import { MaterialModule } from './../utils/material.module';
+import { MaterialModule } from '../utils/material/material.module';
+import { DiretivasModule } from './../utils/diretivas/diretivas.module';
 
 import { ClienteAppComponent } from './cliente.app.component';
 import { ClienteDeletarComponent } from './cliente-deletar/cliente-deletar.component';
@@ -32,7 +32,8 @@ import { ClienteTelaInicialComponent } from './cliente-tela-inicial/cliente-tela
     RouterModule,
     HttpClientModule,
     ClienteRoutingModule,
-    MaterialModule
+    MaterialModule,
+    DiretivasModule
   ],
   providers: [
     ClienteService
