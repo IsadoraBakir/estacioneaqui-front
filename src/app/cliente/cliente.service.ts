@@ -18,14 +18,14 @@ export class ClienteService {
   cadastra(cliente: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(`${this.urlApi}/cadastrar`, cliente).pipe(
       map(obj => obj),
-      catchError(e => this.errorHandler(e))
+      catchError(() => this.errorHandler())
     );
   }
 
   lista(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(this.urlApi).pipe(
       map(obj => obj),
-      catchError(e => this.errorHandler(e))
+      catchError(() => this.errorHandler())
     );
   }
 
@@ -33,7 +33,7 @@ export class ClienteService {
     const url = `${this.urlApi}/${id}`;
     return this.http.get<Cliente>(url).pipe(
       map(obj => obj),
-      catchError(e => this.errorHandler(e))
+      catchError(() => this.errorHandler())
     );
   }
 
@@ -41,7 +41,7 @@ export class ClienteService {
     const url = `${this.urlApi}/atualizar/${cliente.id}`;
     return this.http.put<Cliente>(url, cliente).pipe(
       map(obj => obj),
-      catchError(e => this.errorHandler(e))
+      catchError(() => this.errorHandler())
     );
   }
 
@@ -49,16 +49,20 @@ export class ClienteService {
     const url = `${this.urlApi}/${id}`;
     return this.http.delete<Cliente>(url).pipe(
       map(obj => obj),
-      catchError(e => this.errorHandler(e))
+      catchError(() => this.errorHandler())
     );
   }
 
-  errorHandler(e: any): Observable<any> {
-    this.mostraMsg('Ocorreu um erro!', true);
+  errorHandler(msg?: any): Observable<any> {
+    if (msg) {
+      this.mostraMsg(msg, true);
+    } else {
+      this.mostraMsg('Ocorreu um erro!', true);
+    }
     return EMPTY;
   }
 
-  mostraMsg(msg: string, isError: boolean = false): void {
+  mostraMsg(msg: string, isError: boolean): void {
     this.snackBar.open(msg, 'X', {
       duration: 3000,
       horizontalPosition: 'right',

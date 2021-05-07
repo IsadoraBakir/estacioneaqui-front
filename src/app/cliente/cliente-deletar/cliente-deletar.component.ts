@@ -35,7 +35,7 @@ export class ClienteDeletarComponent implements OnInit, OnDestroy {
   deletaCliente(id: number): void {
     this.subscriptions.push(
       this.clienteService.deleta(id).subscribe(() => {
-        this.clienteService.mostraMsg('Cliente removido com sucesso!');
+        this.clienteService.mostraMsg('Cliente removido com sucesso!', true);
         this.router.navigate(['/cliente']);
       })
     );

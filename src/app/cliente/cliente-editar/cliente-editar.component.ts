@@ -48,7 +48,7 @@ export class ClienteEditarComponent implements OnInit, OnDestroy {
   editaCliente(): void {
     this.subscriptions.push(
       this.clienteService.edita(this.edicaoForm.value).subscribe(() => {
-        this.clienteService.mostraMsg('Cliente atualizado com sucesso!');
+        this.clienteService.mostraMsg('Cliente atualizado com sucesso!', true);
         this.router.navigate(['/cliente']);
       })
     );

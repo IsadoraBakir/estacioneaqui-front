@@ -40,7 +40,7 @@ export class ClienteCadastrarComponent implements OnInit, OnDestroy {
     this.cliente = Object.assign({}, this.cliente, this.cadastroForm.value);
     this.subscriptions.push(
       this.clienteService.cadastra(this.cliente).subscribe(() => {
-        this.clienteService.mostraMsg('Cliente salvo com sucesso!');
+        this.clienteService.mostraMsg('Cliente salvo com sucesso!', true);
         this.router.navigate(['cliente']);
       })
     );
@@ -48,12 +48,6 @@ export class ClienteCadastrarComponent implements OnInit, OnDestroy {
 
   cancela(): void {
     this.router.navigate(['/cliente']);
-  }
-
-  resetaFormulario(): void {
-    this.cliente.nome = '';
-    this.cliente.cpf = '';
-    this.cliente.telefone = '';
   }
 
 }

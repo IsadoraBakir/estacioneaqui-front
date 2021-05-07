@@ -1,23 +1,24 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[cpfFormat]'
 })
 export class CpfFormatDirective {
 
-  value: string;
-
-  constructor(private el: ElementRef) { console.log(this.el) }
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2
+    ) { console.log(this.el) }
 
   @HostListener('blur', ['$event'])
   onBlur(event: KeyboardEvent) {
     const matchValue = this.el.nativeElement.value.match(/(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2})/);
 
     if (matchValue.input === '' || matchValue.input.length !== 11) {
-      this.el.nativeElement.value = '';
+      this.renderer.setProperty(this.el.nativeElement, 'value', '');
       window.alert("Insira um CPF válido, por favor.")
     } else {
-      this.el.nativeElement.value = matchValue[1].concat('.').concat(matchValue[2], '.').concat(matchValue[3], '-').concat(matchValue[4]);
+      this.renderer.setProperty(this.el.nativeElement, 'value', matchValue[1].concat('.').concat(matchValue[2], '.').concat(matchValue[3], '-').concat(matchValue[4]));
     }
   }
 
