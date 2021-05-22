@@ -1,5 +1,8 @@
+import { ClienteEditarComponent } from './../cliente-editar/cliente-editar.component';
+import { ClienteDeletarComponent } from './../cliente-deletar/cliente-deletar.component';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
@@ -25,7 +28,10 @@ export class ClienteListarComponent implements OnInit, OnDestroy {
 
   subscriptions: Subscription[] = [];
 
-  constructor(private clienteService: ClienteService) { }
+  constructor(
+    private clienteService: ClienteService,
+    public dialog: MatDialog
+  ) { }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(subscription => subscription.unsubscribe);
@@ -44,6 +50,20 @@ export class ClienteListarComponent implements OnInit, OnDestroy {
           this.dataSource.paginator = this.paginator;
         }
       }
+    });
+  }
+
+  abreDialogEditar(id) {
+    const dialogRef = this.dialog.open(ClienteEditarComponent, {
+      width: '700px',
+      data: { id: id }
+    });
+  }
+
+  abreDialogDeletar(id) {
+    const dialogRef = this.dialog.open(ClienteDeletarComponent, {
+      width: '700px',
+      data: { id: id }
     });
   }
 }

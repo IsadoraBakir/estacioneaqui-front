@@ -1,12 +1,12 @@
-<mat-card class="mat-elevation-z2">
-    <mat-card-title>Novo Cliente</mat-card-title>
+<div>
+    <h1>Novo Cliente</h1>
     <form [formGroup]="cadastroForm" (ngSubmit)="cadastraCliente()">
         <div>
             <mat-form-field>
                 <input matInput placeholder="Nome" formControlName="nome">
             </mat-form-field>
             <mat-form-field>
-                <input matInput cpfFormat apenasNumeros maxlength="11" placeholder="CPF" formControlName="cpf">
+                <input matInput apenasNumeros maxlength="11" placeholder="CPF" formControlName="cpf">
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="Telefone" formControlName="telefone">
@@ -21,5 +21,4 @@
             Cancelar
         </button>
     </form>
-
-</mat-card>
+</div>

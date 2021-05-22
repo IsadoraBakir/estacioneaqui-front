@@ -1,3 +1,4 @@
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -34,7 +35,14 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     ReactiveFormsModule,
     MatToolbarModule,
     MatListModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
+  ],
+  providers: [
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    }
   ]
 })
 export class MaterialModule { }

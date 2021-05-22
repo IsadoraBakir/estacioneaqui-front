@@ -1,5 +1,5 @@
-<mat-card *ngIf="cliente" class="mat-elevation-z2">
-    <mat-card-title>Editar Cliente</mat-card-title>
+<div *ngIf="cliente">
+    <h1>Editar Cliente</h1>
     <form [formGroup]="edicaoForm" (ngSubmit)="editaCliente()">
         <div>
             <mat-form-field>
@@ -20,4 +20,4 @@
             Cancelar
         </button>
     </form>
-</mat-card>
+</div>

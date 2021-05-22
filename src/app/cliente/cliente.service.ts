@@ -29,7 +29,7 @@ export class ClienteService {
     );
   }
 
-  listaPorId(id: string): Observable<Cliente> {
+  listaPorId(id: number): Observable<Cliente> {
     const url = `${this.urlApi}/${id}`;
     return this.http.get<Cliente>(url).pipe(
       map(obj => obj),

@@ -4,3 +4,7 @@ export interface Cliente {
     cpf: string;
     telefone: string;
 }
+
+export interface ClienteId {
+    id: number;
+}
