@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Cliente, ClienteId } from 'src/app/modelos/cliente';
-import { ClienteService } from '../cliente.service';
+import { ClienteService } from '../../cliente.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -55,13 +55,13 @@ export class ClienteEditarComponent implements OnInit, OnDestroy {
   editaCliente(): void {
     this.subscriptions.push(
       this.clienteService.edita(this.edicaoForm.value).subscribe(() => {
-        this.clienteService.mostraMsg('Cliente atualizado com sucesso!', true);
-        this.router.navigate(['/cliente']);
+        this.clienteService.mostraMsg('Cliente atualizado com sucesso!', false);
+        this.dialogRef.close();
       })
     );
   }
 
   cancela(): void {
-    this.router.navigate(['/cliente']);
+    this.dialogRef.close();
   }
 }

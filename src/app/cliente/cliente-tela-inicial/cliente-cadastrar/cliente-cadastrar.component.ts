@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -6,7 +6,8 @@ import { MatDialogRef } from '@angular/material/dialog'
 
 import { Cliente } from 'src/app/modelos/cliente';
 
-import { ClienteService } from '../cliente.service';
+import { ClienteService } from '../../cliente.service';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-cliente-cadastrar',
@@ -14,6 +15,8 @@ import { ClienteService } from '../cliente.service';
   styleUrls: ['./cliente-cadastrar.component.scss']
 })
 export class ClienteCadastrarComponent implements OnInit, OnDestroy {
+
+  @Output() cadastrouEmit = new EventEmitter();
 
   cliente: Cliente;
 
@@ -44,6 +47,7 @@ export class ClienteCadastrarComponent implements OnInit, OnDestroy {
       this.clienteService.cadastra(this.cliente).subscribe(() => {
         this.clienteService.mostraMsg('Cliente salvo com sucesso!', false);
         this.dialogRef.close();
+        this.cadastrouEmit.emit(true);
       })
     );
   }

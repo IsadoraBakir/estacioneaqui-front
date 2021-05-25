@@ -1,5 +1,9 @@
-<button mat-raised-button color="primary" (click)="abrirDialog()">
-    Novo Cliente
-</button>
-
-<app-cliente-listar></app-cliente-listar>
+<div>
+    <div>
+        <button mat-raised-button color="primary" (click)="abrirDialogCadastrar()">
+            Novo Cliente
+        </button>
+        
+        <app-cliente-listar (cadastrouEmit)="recebeOutput($event)"></app-cliente-listar>
+    </div>
+</div>

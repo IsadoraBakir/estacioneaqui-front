@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Cliente, ClienteId } from 'src/app/modelos/cliente';
-import { ClienteService } from '../cliente.service';
+import { ClienteService } from '../../cliente.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -41,14 +41,14 @@ export class ClienteDeletarComponent implements OnInit, OnDestroy {
   deletaCliente(id: number): void {
     this.subscriptions.push(
       this.clienteService.deleta(id).subscribe(() => {
-        this.clienteService.mostraMsg('Cliente removido com sucesso!', true);
-        this.router.navigate(['/cliente']);
+        this.clienteService.mostraMsg('Cliente removido com sucesso!', false);
+        this.dialogRef.close();
       })
     );
   }
 
   cancela(): void {
-    this.router.navigate(['/cliente']);
+    this.dialogRef.close();
   }
 
 }

@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppModule } from 'src/app/app.module';
 import { MaterialModule } from 'src/app/utils/material/material.module';
-import { ClienteService } from '../cliente.service';
+import { ClienteService } from '../../cliente.service';
 
 import { ClienteDeletarComponent } from './cliente-deletar.component';
 

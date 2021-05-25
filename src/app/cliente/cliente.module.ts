@@ -10,10 +10,10 @@ import { MaterialModule } from '../utils/material/material.module';
 import { DiretivasModule } from './../utils/diretivas/diretivas.module';
 
 import { ClienteAppComponent } from './cliente.app.component';
-import { ClienteDeletarComponent } from './cliente-deletar/cliente-deletar.component';
-import { ClienteEditarComponent } from './cliente-editar/cliente-editar.component';
-import { ClienteListarComponent } from './cliente-listar/cliente-listar.component';
-import { ClienteCadastrarComponent } from './cliente-cadastrar/cliente-cadastrar.component';
+import { ClienteDeletarComponent } from './cliente-tela-inicial/cliente-deletar/cliente-deletar.component';
+import { ClienteEditarComponent } from './cliente-tela-inicial/cliente-editar/cliente-editar.component';
+import { ClienteListarComponent } from './cliente-tela-inicial/cliente-listar/cliente-listar.component';
+import { ClienteCadastrarComponent } from './cliente-tela-inicial/cliente-cadastrar/cliente-cadastrar.component';
 
 import { ClienteService } from './cliente.service';
 import { ClienteTelaInicialComponent } from './cliente-tela-inicial/cliente-tela-inicial.component';

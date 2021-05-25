@@ -1,4 +1,5 @@
-import { ClienteCadastrarComponent } from './../cliente-cadastrar/cliente-cadastrar.component';
+import { Router } from '@angular/router';
+import { ClienteCadastrarComponent } from './cliente-cadastrar/cliente-cadastrar.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -9,15 +10,24 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ClienteTelaInicialComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  abrirDialog(): void {
+  abrirDialogCadastrar(): void {
     const dialogRef = this.dialog.open(ClienteCadastrarComponent, {
-      width: '600px'
+      width: '700px'
     });
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   this.router.navigate(['/cliente']);
+    // });
+  }
+
+  recebeOutput(resposta) {
+    console.log(resposta);
   }
 
 }

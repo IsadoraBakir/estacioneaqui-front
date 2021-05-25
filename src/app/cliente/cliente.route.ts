@@ -2,9 +2,9 @@ import { ClienteTelaInicialComponent } from './cliente-tela-inicial/cliente-tela
 import { ClienteAppComponent } from './cliente.app.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ClienteCadastrarComponent } from './cliente-cadastrar/cliente-cadastrar.component';
-import { ClienteEditarComponent } from './cliente-editar/cliente-editar.component';
-import { ClienteDeletarComponent } from './cliente-deletar/cliente-deletar.component';
+import { ClienteCadastrarComponent } from './cliente-tela-inicial/cliente-cadastrar/cliente-cadastrar.component';
+import { ClienteEditarComponent } from './cliente-tela-inicial/cliente-editar/cliente-editar.component';
+import { ClienteDeletarComponent } from './cliente-tela-inicial/cliente-deletar/cliente-deletar.component';
 
 const routes: Routes = [
     {

@@ -1,5 +1,5 @@
-import { AppModule } from './../../app.module';
-import { ClienteService } from './../cliente.service';
+import { AppModule } from '../../../app.module';
+import { ClienteService } from '../../cliente.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ClienteCadastrarComponent } from './cliente-cadastrar.component';
